@@ -1,0 +1,355 @@
+/*CSS for form element*/
+div.field{
+	margin: 0.5em 0 0 0;
+	position: relative;
+}
+
+.field label{
+	color: #000040;
+	display: block;
+	padding: 0 0 0.3em 0;
+}
+
+.field label[for]{
+	padding: 0 0 0.1em 0.7em;
+}
+
+.field label.line{
+	display: inline-block;
+	padding-right: 0.5em;
+}
+
+.field.line{
+	display: inline-block;
+	padding-right: 0.5em;
+}
+
+@media screen and (max-width: 500px) {
+	.field.line.row2 label,
+	.field.line.row3 label,
+	.field.line.row4 label{
+		min-width: unset;
+		width: calc(100% - 2em - 5px);
+	}
+}
+
+
+.field input[type=text],
+.field input[type=number],
+.field input[type=date],
+.field input[type=time],
+.field input[type=month],
+.field input[type=password],
+.field select{
+	margin: 0em 0em 0.3em 0em;
+	padding: 0.5em 1em 0.4em 1em;
+	border: 1px solid #000040;
+	border-radius: 3px;
+	font-size:120%;
+}
+
+.field input[type=text],
+.field input[type=month],
+.field input[type=password]{
+	width: calc(50% - 3em - 2px);
+	max-width:400px;
+	min-width:300px;
+}
+
+.field input[type=number]{
+	width: calc(50% - 6em - 2px);
+	max-width: calc(400px - 3em);
+	min-width: calc(300px - 3em);
+}
+.field.number .add{
+	content: '+';
+	display: inline-block;
+	width: 50px;
+	height: 41.23px;
+	position: absolute;
+    /*margin: 0 0 0 5px;*/
+	right: 0;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.5) inset, -1px -1px 3px rgba(0,0,0,0.5) inset;
+	background: #D0A020;
+	background-image: -webkit-linear-gradient(top, #D0A020, #ab8420);
+	background-image: -moz-linear-gradient(top, #D0A020, #ab8420);
+	background-image: -ms-linear-gradient(top, #D0A020, #ab8420);
+	background-image: -o-linear-gradient(top, #D0A020, #ab8420);
+	background-image: linear-gradient(to bottom, #D0A020, #ab8420);
+	color: black;
+	line-height: 1.7;
+	-webkit-border-radius: 4;
+	-moz-border-radius: 4;
+	border-radius: 4px;
+	border: none;
+	font-size: 26px;
+    font-weight: bold;
+	text-decoration: none;
+	text-align: center;
+	cursor: pointer;
+}
+
+.field select{
+	width: calc(50% - 1em - 2px);
+	max-width:440px;
+	min-width:340px;
+}
+
+.field input[type=text]:required,
+.field input[type=number]:required,
+.field input[type=date]:required,
+.field input[type=month]:required,
+.field input[type=password]:required,
+.field select:required{
+	background-image: url("/images/required.png");
+	background-repeat: no-repeat;
+    background-position-x: right;
+}
+
+@media screen and (max-width: 500px) {
+	.field input[type=text],
+	.field input[type=number],
+	.field input[type=password]{
+		width: calc(100% - 2em - 2px);
+		max-width: unset;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.field select{
+		width: 100%;
+		max-width: unset;
+	}
+}
+
+.field input[type=text]:focus,
+.field input[type=password]:focus{
+	border: 1px solid #D0A020;
+}
+
+.field input[type=checkbox]{
+	border: 1px solid black;
+}
+
+/* Cначала обозначаем стили для IE8 и более старых версий
+т.е. здесь мы немного облагораживаем стандартный чекбокс. */
+.field input[type=checkbox] {
+  vertical-align: top;
+  margin: 0 3px 0 0;
+  width: 17px;
+  height: 17px;
+}
+/* Это для всех браузеров, кроме совсем старых, которые не поддерживают
+селекторы с плюсом. Показываем, что label кликабелен. */
+.field input[type=checkbox] + label {
+  cursor: pointer;
+  font-size: 110%;
+}
+
+/* Далее идет оформление чекбокса в современных браузерах, а также IE9 и выше.
+Благодаря тому, что старые браузеры не поддерживают селекторы :not и :checked,
+в них все нижеследующие стили не сработают. */
+
+/* Прячем оригинальный чекбокс. */
+.field input[type=checkbox]:not(checked) {
+  position: absolute;
+  opacity: 0;
+}
+.field input[type=checkbox]:not(checked) + label {
+  position: relative; /* будем позиционировать псевдочекбокс относительно label */
+  padding: 5px 0 5px 60px;/* оставляем слева от label место под псевдочекбокс */
+  margin: 5px 0;
+  width: calc(50% - 2em - 25px);
+	max-width:380px;
+	min-width:280px;
+}
+
+@media screen and (max-width: 500px) {
+	.field input[type=checkbox]:not(checked) + label {
+		width: calc(100% - 2em - 25px);
+		max-width: unset;
+	}
+}
+
+/* Оформление первой части чекбокса в выключенном состоянии (фон). */
+.field input[type=checkbox]:not(checked) + label:before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 50px;
+  height: 26px;
+  border-radius: 13px;
+  background: #CDD1DA;
+  box-shadow: inset 0 2px 3px rgba(0,0,0,.2);
+}
+/* Оформление второй части чекбокса в выключенном состоянии (переключатель). */
+.field input[type=checkbox]:not(checked) + label:after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 22px;
+  height: 22px;
+  border-radius: 10px;
+  background: #FFF;
+  box-shadow: 0 2px 5px rgba(0,0,0,.3);
+  transition: all .2s; /* анимация, чтобы чекбокс переключался плавно */
+}
+/* Меняем фон чекбокса, когда он включен. */
+.field input[type=checkbox]:checked + label:before {
+  background: #D0A020;
+}
+/* Сдвигаем переключатель чекбокса, когда он включен. */
+.field input[type=checkbox]:checked + label:after {
+  left: 26px;
+}
+/* Показываем получение фокуса. */
+.field input[type=checkbox]:focus + label:before {
+  box-shadow: 0 0 0 3px rgba(255,255,0,.5);
+}
+
+.field input[type=radio] {
+  vertical-align: top;
+  width: 17px;
+  height: 17px;
+  margin: 0 3px 0 0;
+}
+.field input[type=radio] + label {
+  cursor: pointer;
+}
+.field input[type=radio]:not(checked) {
+  position: absolute;
+  opacity: 0;
+}
+.field input[type=radio]:not(checked) + label {
+  position: relative;
+  padding: 5px 0 5px 35px;
+    margin: 5px 0;
+    width: calc(50% - 2em - 25px);
+    max-width: 380px;
+    min-width: 280px;
+}
+@media screen and (max-width: 500px) {
+	.field input[type=radio]:not(checked) + label{
+		width: calc(100% - 2em - 25px);
+		max-width: unset;
+	}
+}
+.field input[type=radio]:not(checked) + label:before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 22px;
+  height: 22px;
+  border: 1px solid #758099;
+  border-radius: 50%;
+  background: #FFF;
+}
+.field input[type=radio]:not(checked) + label:after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #D0A020;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.5);
+  opacity: 0;
+  transition: all .2s;
+}
+.field input[type=radio]:checked + label:after {
+  opacity: 1;
+}
+.field input[type=radio]:focus + label:before {
+  box-shadow: 0 0 0 3px rgba(255,255,0,.5);
+}
+
+.field input[type="submit"]{
+	
+}
+
+.field input[type="button"],
+.field input[type="submit"],
+a.button{
+    line-height: 1;
+	-webkit-border-radius: 4;
+	-moz-border-radius: 4;
+	border-radius: 4px;
+	border: none;
+	color: #ffffff;
+	font-size: 18px;
+	padding: 10px 20px 10px 20px;
+	text-decoration: none;
+	cursor: pointer;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.5) inset, -1px -1px 3px rgba(0,0,0,0.5) inset;
+}
+
+a.button{
+	display: inline-block;
+}
+
+.field input[type="button"]:hover,
+.field input[type="submit"]:hover,
+a.button:hover{
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.5) inset, -1px -1px 3px rgba(0,0,0,0.5) inset, 1px 1px 3px rgba(0,0,0,0.5), -1px -1px 3px rgba(0,0,0,0.5);
+	
+}
+
+.field input[type="button"]:hover{
+	color: #D0A020 !important;
+}
+
+.field input[type="button"],
+a.button{
+	background: #5a5adb;
+	background-image: -webkit-linear-gradient(top, #5a5adb, #3636c7);
+	background-image: -moz-linear-gradient(top, #5a5adb, #3636c7);
+	background-image: -ms-linear-gradient(top, #5a5adb, #3636c7);
+	background-image: -o-linear-gradient(top, #5a5adb, #3636c7);
+	background-image: linear-gradient(to bottom, #5a5adb, #3636c7);
+}
+
+.field input[type="button"].small,
+a.button.small{
+	font-size: 14px;
+	padding: 5px 10px 5px 10px;
+}
+
+a.button.big{
+	width: calc(100% - 40px - 1em);
+	max-width: 400px;
+	margin: 0.5em;
+	padding: 15px 20px 15px 20px;
+}
+
+.field input[type="button"]:hover{
+	background: #4646f0;
+	background-image: -webkit-linear-gradient(top, #4646f0, #2a2a91);
+	background-image: -moz-linear-gradient(top, #4646f0, #2a2a91);
+	background-image: -ms-linear-gradient(top, #4646f0, #2a2a91);
+	background-image: -o-linear-gradient(top, #4646f0, #2a2a91);
+	background-image: linear-gradient(to bottom, #4646f0, #2a2a91);
+	text-decoration: none;
+}
+
+.field input[type="submit"]{
+	background: #D0A020;
+	background-image: -webkit-linear-gradient(top, #D0A020, #ab8420);
+	background-image: -moz-linear-gradient(top, #D0A020, #ab8420);
+	background-image: -ms-linear-gradient(top, #D0A020, #ab8420);
+	background-image: -o-linear-gradient(top, #D0A020, #ab8420);
+	background-image: linear-gradient(to bottom, #D0A020, #ab8420);
+	color: black;
+}
+.field input[type="submit"]:hover{
+	background: #EDB321;
+	background-image: -webkit-linear-gradient(top, #EDB321, #d1a023);
+	background-image: -moz-linear-gradient(top, #EDB321, #d1a023);
+	background-image: -ms-linear-gradient(top, #EDB321, #d1a023);
+	background-image: -o-linear-gradient(top, #EDB321, #d1a023);
+	background-image: linear-gradient(to bottom, #EDB321, #d1a023);
+	text-decoration: none;
+}

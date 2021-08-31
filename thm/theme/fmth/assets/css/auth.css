@@ -1,0 +1,17 @@
+/*CSS for AUTH page*/
+.auth_box input[type="text"],
+.auth_box input[type="password"]{
+	width: calc(100% - 2em - 2px) !important;
+}
+
+@media screen and (min-width: 500px){
+	.auth_box{
+		position: relative;
+		border-radius: 4px;
+		width: 340px;
+		margin-left: 50%;
+		margin-right: auto;
+		padding: 1em;
+		left: -170px;
+	}
+}

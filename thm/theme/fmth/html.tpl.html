@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>{{title}} - {{site_name}}</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<meta name="description" content="{{description}}">
+		<meta property="og:title" content="{{title}} - {{site_name}}">
+		<meta property="og:description" content="{{description}}">
+		<meta property="og:url" content="{{url}}">
+		<meta property="og:type" content="website">
+		<meta property="og:site_name" content="{{site_name}}">
+		<meta property="og:locale" content="ru_RU">
+{{assets}}
+</head>
+<body>
+<header id="header">
+	<nav><ul><li><a href="#menu">Menu</a></li></ul></nav>
+</header>
+<nav id="menu">
+	<h2>Меню</h2>
+	{{main_menu}}
+</nav>
+
+<div id="wrapper" class="body">
+	<div class="content">
+		{{body}}
+	<div>
+	<footer>
+		<!--a href="/?reCache=1" style="float:right">
+			<img src="/images/cc.png" alt="cc" title="reCache" width="15" />
+		</a-->
+		{{copyright}}
+	</footer>	
+</div>
+</body></html>

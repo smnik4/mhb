@@ -1,0 +1,21 @@
+<div class="page_title center">
+	<h1>{{title}}</h1>
+</div>
+<div class="auth_box">
+	{{messages}}
+	<form method="POST">
+		<input type="hidden" name="user_action" value="user_auth"/>
+		<div class="field">
+			<label for="name">Логин</label>
+			<input type="text" name="login" id="name" value="{{input_login}}" placeholder="Логин" required/>
+		</div>
+		<div class="field">
+			<label for="password">Пароль</label>
+			<input type="password" name="password" id="password" value="{{input_password}}"  placeholder="Пароль" required/>
+		</div>
+		<div class="field center">
+			<input type="submit" value="Войти" />
+		</div>
+	</form>
+	<div class="center field"><a class="button" href="/?page=register">Регистрация</a></div>
+</div>
